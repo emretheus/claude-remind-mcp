@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Added
+
+- `mcpName` field in `package.json` for [MCP Registry](https://registry.modelcontextprotocol.io) ownership verification.
+- `server.json` manifest so the package can be listed on the MCP Registry.
+
 ## [0.1.0]
 
 Initial public release.

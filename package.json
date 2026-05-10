@@ -1,7 +1,8 @@
 {
   "name": "claude-remind-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for searching past Claude Code conversation history. Local BM25 search over JSONL logs with persistent index, secret redaction, solved-hint, and instant claude --resume.",
+  "mcpName": "io.github.emretheus/claude-remind-mcp",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

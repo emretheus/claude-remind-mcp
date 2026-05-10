@@ -10,7 +10,7 @@ import { handleSession } from "./tools/session.js";
 import type { SnippetFormat } from "./tools/snippet.js";
 
 const SERVER_NAME = "claude-remind";
-const SERVER_VERSION = "0.1.0";
+const SERVER_VERSION = "0.1.1";
 
 const TOOLS = [
   {
