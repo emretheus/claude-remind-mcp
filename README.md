@@ -1,8 +1,8 @@
 # claude-remind-mcp
 
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that searches your local [Claude Code](https://docs.anthropic.com/en/docs/claude-code) conversation history so the agent can recall solutions you've already worked out.
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that searches your local [Claude Code](https://docs.anthropic.com/en/docs/claude-code) **conversation history**. It indexes every past session under `~/.claude/projects/` with BM25, redacts secrets, and lets the running Claude agent recall and resume solutions you've already worked out — without re-explaining the problem from scratch.
 
-**Not Apple Reminders.** This indexes the JSONL files Claude Code writes under `~/.claude/projects/` and exposes a small set of search tools over stdio.
+If you've ever caught yourself solving the same Docker, deployment, or auth bug twice in a month, this is for you. The package is local-only (no network calls), pure-JS (no native modules), and ships as a single `npx`-installable binary.
 
 [![npm version](https://img.shields.io/npm/v/claude-remind-mcp.svg)](https://www.npmjs.com/package/claude-remind-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -43,6 +43,16 @@ npm install -g claude-remind-mcp
 ```
 
 ---
+
+## use cases
+
+A few patterns where searching past Claude Code conversation history pays off:
+
+- **Recurring infrastructure errors.** _"We hit `ExpiredTokenException` on the staging deploy last month — what was the fix?"_ One `remind_search` returns the exact session, the resolved snippet, and the resume command.
+- **Cross-project knowledge.** _"How did I configure BuildKit cache on the other Coolify project?"_ The index spans every project under `~/.claude/projects/`, so solutions from project A surface when you're working in project B.
+- **Onboarding into your own past work.** Coming back to a repo after weeks? Search for "Cognito", "RunPod", "tailwind config" and read the latest session summary instead of grepping through code.
+- **Avoiding redundant deep-dives.** Before Claude burns 10k tokens diagnosing a problem from scratch, it can call `remind_search` first and see if you already solved it. The default response is ~1.5 KB.
+- **Resuming where you left off.** Every search result includes a ready-to-paste `claude --resume <id>` command, plus the original `cwd` and `gitBranch`, so jumping back into a half-finished thread is one paste away.
 
 ## tools
 
