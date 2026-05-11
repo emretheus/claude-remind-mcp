@@ -9,6 +9,8 @@ If you've ever caught yourself solving the same Docker, deployment, or auth bug 
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D20-brightgreen)](https://nodejs.org/)
 
+![demo](assets/demo.gif)
+
 > Status: experimental (`v0.1.x`). Tool surface is stable; internals may change.
 
 ---

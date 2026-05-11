@@ -9,3 +9,4 @@ coverage/
 .idea/
 *.tsbuildinfo
 *.tgz
+assets/demo.tape
